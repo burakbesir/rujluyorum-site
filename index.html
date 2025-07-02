@@ -2,79 +2,116 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <title>Rujlu Yorum - Yakında!</title>
+  <title>Rujlu Yorum - Yakında</title>
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      background: linear-gradient(135deg, #ffe0ec 0%, #f8bbd0 100%);
-      color: #c2185b;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      background: linear-gradient(120deg, #fbeff8 0%, #e0f7fa 100%);
+      min-height: 100vh;
       margin: 0;
       font-family: 'Montserrat', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       overflow: hidden;
+      position: relative;
+    }
+    .bubbles {
+      position: absolute;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.25;
+      animation: float 8s infinite ease-in-out;
+    }
+    @keyframes float {
+      0% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-40px) scale(1.08); }
+      100% { transform: translateY(0) scale(1); }
+    }
+    .main-content {
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 30px;
     }
     .lipstick {
       width: 120px;
-      margin-bottom: 24px;
-      animation: pop 1.2s cubic-bezier(.68,-0.55,.27,1.55) infinite alternate;
-    }
-    @keyframes pop {
-      0% { transform: translateY(0) scale(1); }
-      100% { transform: translateY(-12px) scale(1.08); }
+      margin-bottom: 18px;
+      animation: float 3.5s infinite alternate;
+      filter: drop-shadow(0 4px 16px #f8bbd055);
     }
     h1 {
       font-family: 'Pacifico', cursive;
-      font-size: 2.8rem;
-      margin: 0 0 12px 0;
+      font-size: 2.3rem;
       color: #ad1457;
+      margin: 0 0 10px 0;
       letter-spacing: 1px;
       text-shadow: 0 2px 8px #fff3f8;
+      text-align: center;
     }
     .subtitle {
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       color: #c2185b;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
       letter-spacing: 0.5px;
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
     }
     .coming-soon {
-      background: #fff3f8;
+      background: #fff3f8cc;
       border-radius: 18px;
-      padding: 18px 32px;
+      padding: 16px 28px;
       box-shadow: 0 4px 24px 0 #f8bbd0aa;
-      font-size: 1.1rem;
+      font-size: 1.08rem;
       color: #ad1457;
-      margin-top: 12px;
+      margin-top: 8px;
       font-family: 'Montserrat', sans-serif;
+      text-align: center;
+      font-weight: 500;
     }
     .footer {
       position: absolute;
-      bottom: 18px;
+      bottom: 16px;
       font-size: 0.95rem;
-      color: #c2185b99;
+      color: #ad145799;
       letter-spacing: 0.5px;
+      z-index: 2;
     }
     @media (max-width: 600px) {
-      h1 { font-size: 2rem; }
-      .coming-soon { font-size: 1rem; padding: 12px 16px; }
-      .lipstick { width: 80px; }
+      h1 { font-size: 1.3rem; }
+      .subtitle, .coming-soon { font-size: 0.98rem; padding: 8px 10px; }
+      .lipstick { width: 70px; }
     }
   </style>
 </head>
 <body>
-  <svg class="lipstick" viewBox="0 0 64 128" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="20" y="60" width="24" height="48" rx="8" fill="#f06292"/>
-    <rect x="20" y="108" width="24" height="12" rx="6" fill="#ad1457"/>
-    <rect x="24" y="36" width="16" height="32" rx="8" fill="#fff3f8"/>
-    <ellipse cx="32" cy="24" rx="8" ry="20" fill="#f8bbd0"/>
-    <ellipse cx="32" cy="16" rx="6" ry="10" fill="#c2185b"/>
-  </svg>
-  <h1>Rujlu Yorum</h1>
-  <div class="subtitle">Kızlar için, kızlar tarafından 💄</div>
-  <div class="coming-soon">Web sitemiz şu anda <b>geliştirme aşamasında</b>!<br>Çok yakında burada buluşacağız.<br><span style="font-size:1.5em;">💋</span></div>
+  <div class="bubbles">
+    <div class="bubble" style="width:60px;height:60px;left:10vw;top:70vh;background:#f8bbd0;animation-delay:0s;"></div>
+    <div class="bubble" style="width:40px;height:40px;left:30vw;top:80vh;background:#b2ebf2;animation-delay:1.2s;"></div>
+    <div class="bubble" style="width:80px;height:80px;left:60vw;top:75vh;background:#f06292;animation-delay:2.1s;"></div>
+    <div class="bubble" style="width:50px;height:50px;left:80vw;top:85vh;background:#e1bee7;animation-delay:0.7s;"></div>
+    <div class="bubble" style="width:30px;height:30px;left:50vw;top:90vh;background:#fff3f8;animation-delay:1.7s;"></div>
+    <div class="bubble" style="width:70px;height:70px;left:20vw;top:88vh;background:#ba68c8;animation-delay:2.7s;"></div>
+  </div>
+  <div class="main-content">
+    <svg class="lipstick" viewBox="0 0 64 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="20" y="60" width="24" height="48" rx="8" fill="#f06292"/>
+      <rect x="20" y="108" width="24" height="12" rx="6" fill="#ad1457"/>
+      <rect x="24" y="36" width="16" height="32" rx="8" fill="#fff3f8"/>
+      <ellipse cx="32" cy="24" rx="8" ry="20" fill="#f8bbd0"/>
+      <ellipse cx="32" cy="16" rx="6" ry="10" fill="#c2185b"/>
+    </svg>
+    <h1>Rujlu Yorum</h1>
+    <div class="subtitle">Kızlar için, kızlar tarafından 💄<br>Yakında burada, hayallerin rengiyle.</div>
+    <div class="coming-soon">Web sitemiz <b>geliştirme aşamasında</b>.<br>Çok yakında buluşacağız.<br><span style="font-size:1.5em;">💋</span></div>
+  </div>
   <div class="footer">@rujluyorum &bull; 2025</div>
 </body>
 </html>
